@@ -216,6 +216,7 @@
                     this.choseCharacter = false;
                     this.gameIsPlaying = true;
                 }
+                console.log(this.theChar);
             },
             myBoard(event) {
                 if(this.theBoard) {
