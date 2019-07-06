@@ -24,7 +24,7 @@
                 <h2>Choose a board</h2>
                 <div class="board-row row">
                     <div class="board-box col-sm-3 col-md">
-                        <img src="" class="board-img" style="cursor: pointer">
+                        <img src="" id="board1" @click="myBoard($event)" class="board-img">
                         Tech Board
                     </div>
                     <div class="board-box col-sm-3 col-md">
@@ -45,8 +45,8 @@
             <div class="container">
                 <h2>Choose a character</h2>
                 <div class="char-row row">
-                    <div class="char-box col-sm-2 col-md"></div>
-                    <div class="char-box col-sm-2 col-md"></div>
+                    <div id="char1" @click="myChar($event)" class="char-box col-sm-2 col-md" style="cursor: pointer"></div>
+                    <div id="char2" @click="myChar($event)" class="char-box col-sm-2 col-md" style="cursor: pointer"></div>
                     <div class="char-box col-sm-2 col-md"></div>
                     <div class="char-box col-sm-2 col-md"></div>
                     <div class="char-box col-sm-2 col-md"></div>
@@ -58,46 +58,53 @@
 
         <!-- GAME START -->
         <div id="in-game" v-if="gameIsPlaying">
-            <div class="container">
-                <section id="box-tiles">
-                    <div class="row">
-                        <div id="box1" class="col-sm-2"></div>
-                        <div id="box2" class="col-sm-2"></div>
-                        <div id="box3" class="col-sm-2"></div>
-                        <div id="box4" class="col-sm-2"></div>
-                        <div id="box5" class="col-sm-2"></div>
-                        <div id="box6" class="col-sm-2"></div>
-                    </div>
-                    <!-- END OF ROW 1 -->
-                    <div class="row">
-                        <div id="box7" class="col-sm-2"></div>
-                        <div id="box8" class="col-sm-2"></div>
-                        <div id="box9" class="col-sm-2"></div>
-                        <div id="box10" class="col-sm-2"></div>
-                        <div id="box11" class="col-sm-2"></div>
-                        <div id="box12" class="col-sm-2"></div>
-                    </div>
-                    <!-- END OF ROW 2 -->
-                    <div class="row">
-                        <div id="box13" class="col-sm-2"></div>
-                        <div id="box14" class="col-sm-2"></div>
-                        <div id="box15" class="col-sm-2"></div>
-                        <div id="box16" class="col-sm-2"></div>
-                        <div id="box17" class="col-sm-2"></div>
-                        <div id="box18" class="col-sm-2"></div>
-                    </div>
-                    <!-- END OF ROW 3 -->
-                    <div class="row">
-                        <div id="box19" class="col-sm-2"></div>
-                        <div id="box20" class="col-sm-2"></div>
-                        <div id="box21" class="col-sm-2"></div>
-                        <div id="box22" class="col-sm-2"></div>
-                        <div id="box23" class="col-sm-2"></div>
-                        <div id="box24" class="col-sm-2"></div>
-                    </div>
-                    <!-- END OF ROW 4 -->
-                </section>
-                <button @click="stopGame">QUIT</button>
+            <div class="container-fluid">
+                <div class="row">
+                    <section id="box-tiles" class="col-10">
+                        <div class="row">
+                            <div id="box1" class="col-sm"></div>
+                            <div id="box2" class="col-sm"></div>
+                            <div id="box3" class="col-sm"></div>
+                            <div id="box4" class="col-sm"></div>
+                            <div id="box5" class="col-sm"></div>
+                            <div id="box6" class="col-sm"></div>
+                        </div>
+                        <!-- END OF ROW 1 -->
+                        <div class="row">
+                            <div id="box7" class="col-sm"></div>
+                            <div id="box8" class="col-sm"></div>
+                            <div id="box9" class="col-sm"></div>
+                            <div id="box10" class="col-sm"></div>
+                            <div id="box11" class="col-sm"></div>
+                            <div id="box12" class="col-sm"></div>
+                        </div>
+                        <!-- END OF ROW 2 -->
+                        <div class="row">
+                            <div id="box13" class="col-sm"></div>
+                            <div id="box14" class="col-sm"></div>
+                            <div id="box15" class="col-sm"></div>
+                            <div id="box16" class="col-sm"></div>
+                            <div id="box17" class="col-sm"></div>
+                            <div id="box18" class="col-sm"></div>
+                        </div>
+                        <!-- END OF ROW 3 -->
+                        <div class="row">
+                            <div id="box19" class="col-sm"></div>
+                            <div id="box20" class="col-sm"></div>
+                            <div id="box21" class="col-sm"></div>
+                            <div id="box22" class="col-sm"></div>
+                            <div id="box23" class="col-sm"></div>
+                            <div id="box24" class="col-sm"></div>
+                        </div>
+                        <!-- END OF ROW 4 -->
+                    </section>
+                    <section id="sidenav" class="col-2">
+                        <p>{{ diceNum }}</p>
+                        <img src="" alt="dice" @click="rollDice" style="cursor: pointer">
+                        <img src="" alt="chibi">
+                        <button @click="stopGame">QUIT</button>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
@@ -106,6 +113,8 @@
     new Vue({
         el: '#app',
         data: {
+            theBoard: "",
+            diceNum: 6,
             gameIsRunning: false,
             choseBoard: false,
             choseCharacter: false,
@@ -124,8 +133,10 @@
                 this.gameIsPlaying = false;
             },
             boardChosen() {
-                this.choseBoard = false;
-                this.choseCharacter = true;
+                if(this.theBoard) {
+                    this.choseBoard = false;
+                    this.choseCharacter = true;
+                }
             },
             goBack() {
                 this.choseBoard = true;
@@ -134,6 +145,10 @@
             playGame() {
                 this.choseCharacter = false;
                 this.gameIsPlaying = true;
+            },
+            myBoard(event) {
+                this.theBoard = event.currentTarget.id;
+                document.getElementById(this.theBoard).style.boxShadow = '10px 5px 5px red';
             }
         }
     });
