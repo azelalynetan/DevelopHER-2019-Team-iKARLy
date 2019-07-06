@@ -48,16 +48,13 @@
             <div class="container bg-yellow">
                 <h2>Choose a character</h2>
                 <div class="radioGroupChar">
-                    <input type="radio" id="char1" @click="myChar($event)" name="leChar">
-                    <label for="char1"><img src="" alt="Char"></label>
-                    <input type="radio" id="char2" @click="myChar($event)" name="leChar">
-                    <label for="char2"><img src="" alt="Char"></label>
-                    <input type="radio" id="char3" @click="myChar($event)" name="leChar">
-                    <label for="char3"><img src="" alt="Char"></label>
-                    <input type="radio" id="char4" @click="myChar($event)" name="leChar">
-                    <label for="char4"><img src="" alt="Char"></label>
-                    <input type="radio" id="char5" @click="myChar($event)" name="leChar">
-                    <label for="char5"><img src="" alt="Char"></label>
+                    <?php if (is_array($characters) || is_object($characters)):
+                        foreach ($characters as $char):?>
+                    <input type="radio" id="char1" @click="myChar($event)" name="leChar"
+                    :class="{}">
+                    <label for="char1"><img src=""></label>
+                    <?php endforeach;
+                    endif; ?>
                 </div>
                 <button @click="goBack">BACK</button>
                 <button @click="playGame">PLAY</button>
@@ -117,7 +114,7 @@
                         </div>
                         
                         <img src="" alt="chibi">
-                        <button @click="stopGame">QUIT</button>
+                        <a href="<?=base_url()?>game/logout">QUIT</a>
                     </section>
                 </div>
             </div>
