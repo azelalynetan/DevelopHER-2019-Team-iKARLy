@@ -111,7 +111,11 @@
                         </div>
                     </section>
                     <section id="sidenav" class="col-2">
-                        <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
+                        <div class="wrap-dice">
+                            <span>Roll the dice</span>
+                            <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
+                        </div>
+                        
                         <img src="" alt="chibi">
                         <button @click="stopGame">QUIT</button>
                     </section>
