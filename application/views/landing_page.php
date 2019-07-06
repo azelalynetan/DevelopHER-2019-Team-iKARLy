@@ -8,8 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
-<div id="container">
-
+<div id="container" style="text-align: center;">
+    <h1>title here</h1>
+    <button>start</button>
 </div>
 
 </body>
