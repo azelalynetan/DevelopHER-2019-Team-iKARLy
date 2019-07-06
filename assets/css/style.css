@@ -46,6 +46,18 @@ body {
     box-shadow: 2px 2px #365271;
 }
 
+#boards h2, #characters h2 {
+    margin: 40px 0;
+    font-size: 44px;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 1px 1px black;
+}
+
+#boards .bg-yellow, #characters .bg-yellow {
+    position: relative;
+}
+
 .char-box {
     border: 1px solid #000;
     height: 400px;

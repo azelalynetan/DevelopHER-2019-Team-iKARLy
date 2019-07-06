@@ -24,6 +24,9 @@
         <!-- CHOOSE A BOARD -->
         <div id="boards" v-if="choseBoard">
             <div class="bg-yellow container">
+                <div class="logo">
+                    <img src="<?=base_url()?>assets/images/board-name.png" class="board-img">
+                </div>
                 <h2>Choose a board</h2>
                 <div class="board-row row">
                     <div class="board-box col-sm-3 col-md">
@@ -46,6 +49,9 @@
         <!-- CHOOSE A CHARACTER -->
         <div id="characters" v-if="choseCharacter">
             <div class="container bg-yellow">
+                <div class="logo">
+                    <img src="<?=base_url()?>assets/images/board-name.png" class="board-img">
+                </div>
                 <h2>Choose a character</h2>
                 <div class="radioGroupChar row">
                     <?php if (is_array($characters) || is_object($characters)):
