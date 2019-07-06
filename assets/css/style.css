@@ -43,6 +43,7 @@ body {
     font-size: 22px;
     margin: 40px;
     font-weight: 700;
+    box-shadow: 2px 2px #365271;
 }
 
 #boards h2, #characters h2 {
