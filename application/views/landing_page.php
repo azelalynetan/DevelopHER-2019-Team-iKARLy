@@ -23,8 +23,17 @@
             <div class="container">
                 <h2>Choose a board</h2>
                 <div class="board-row row">
-                    <div class="board-box col-sm-3 col-md"></div>
-                    <div class="board-box col-sm-3 col-md"></div>
+                    <div class="board-box col-sm-3 col-md">
+                        <img src="" class="board-img" style="cursor: pointer">
+                        Tech Board
+                    </div>
+                    <div class="board-box col-sm-3 col-md">
+                        <img src="" class="board-img">
+                        Finish other boards to unlock
+                    </div><div class="board-box col-sm-3 col-md">
+                        <img src="" class="board-img">
+                        Finish other boards to unlock
+                    </div>
                 </div>
                 <button @click="boardChosen">NEXT</button>
                 <button @click="stopGame">X</button>
