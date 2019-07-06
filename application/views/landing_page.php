@@ -45,7 +45,7 @@
 
         <!-- CHOOSE A CHARACTER -->
         <div id="characters" v-if="choseCharacter">
-            <div class="container">
+            <div class="container bg-yellow">
                 <h2>Choose a character</h2>
                 <div class="radioGroupChar">
                     <input type="radio" id="char1" name="leChar">
