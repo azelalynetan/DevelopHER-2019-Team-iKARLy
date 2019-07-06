@@ -68,6 +68,15 @@ input[type="radio"]:checked + label {
     cursor: pointer;
 }
 
+.radioGroupChar img {
+    width: 100%;
+}
+
+.charLocked {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
 .character {
     width: 100%;
 }

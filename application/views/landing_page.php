@@ -47,12 +47,14 @@
         <div id="characters" v-if="choseCharacter">
             <div class="container bg-yellow">
                 <h2>Choose a character</h2>
-                <div class="radioGroupChar">
+                <div class="radioGroupChar row">
                     <?php if (is_array($characters) || is_object($characters)):
                         foreach ($characters as $char):?>
-                    <input type="radio" id="char1" @click="myChar($event)" name="leChar"
-                    :class="{}">
-                    <label for="char1"><img src=""></label>
+                    <div class="col-sm">
+                        <input type="radio" id="<?= $char->women_id?>" @click="myChar($event)" name="leChar"
+                               :class="{charLocked: <?= $char->unlocked?>}">
+                        <label for="<?= $char->women_id?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>"></label>
+                    </div>
                     <?php endforeach;
                     endif; ?>
                 </div>
