@@ -66,7 +66,7 @@
         <div id="in-game" v-if="gameIsPlaying">
             <div class="container ">
                 <div class="row">
-                    <section id="box-tiles" class="col-10 bg-yellow">
+                    <section id="box-tiles" class="col-9 bg-yellow">
                         <div class="tb-boardgame">
                             <table>
                                 <tr>
@@ -108,11 +108,17 @@
                             </table>
                         </div>
                     </section>
-                    <section id="sidenav" class="col-2">
-                        <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
-                        <img id="theChibi" :src="myChibi">
-                        <p></p>
-                        <a href="<?=base_url()?>game/logout" class="btn btn-primary">QUIT</a>
+                    <section id="sidenav" class="col-3">
+                        <div class="diceContainer">
+                            <span>Roll the dice</span>
+                            <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
+                        </div>
+                        <div class="chibiContainer">
+                            <span>Player</span>
+                            <img id="theChibi" :src="myChibi">
+                            <p></p>
+                            <a href="<?=base_url()?>game/logout" class="btn btn-primary">QUIT</a>
+                        </div>
                     </section>
                 </div>
             </div>

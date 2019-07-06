@@ -112,7 +112,7 @@ input[type="radio"]:checked + label {
 
 .tb-boardgame td {
     /*border: 1px solid #000;*/
-    height: 130px;
+    height: 110px;
     width: 150px;
     padding-left: 25px;
     padding-bottom: 20px;
@@ -123,4 +123,20 @@ input[type="radio"]:checked + label {
 
  .noChibi {
      display: none;
+ }
+
+ .diceContainer, .chibiContainer {
+    background-color: #000000cf;
+    padding: 60px;
+ }
+
+ .diceContainer span, .chibiContainer span {
+    color: #FFF;
+    font-size: 21px;
+    margin-bottom: 10px;
+    display: inline-block;
+ }
+
+ .chibiContainer {
+    margin-top: 10px;
  }
