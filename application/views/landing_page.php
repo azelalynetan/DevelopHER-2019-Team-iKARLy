@@ -14,8 +14,11 @@
     <div id="app">
         <!-- LANDING PAGE -->
         <div id="landing" class="container" v-if="!gameIsRunning">
-            <h1>title here</h1>
-            <button @click="startGame">START</button>
+            <div class="container bg-yellow">
+                <!-- <h1>title here</h1> -->
+                <img class="board-name" src="<?=base_url()?>assets/images/board-name.png">
+                <button @click="startGame">START</button>
+            </div>
         </div>
 
         <!-- CHOOSE A BOARD -->
