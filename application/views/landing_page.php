@@ -45,16 +45,17 @@
         <div id="characters" v-if="choseCharacter">
             <div class="container">
                 <h2>Choose a character</h2>
-                <div class="char-row row">
-                    <div class="char-box col-sm-2 col-md" style="cursor: pointer;">
-                        <img src="" alt="hello" id="char1" @click="myChar($event)">
-                    </div>
-                    <div class="char-box col-sm-2 col-md" style="cursor: pointer">
-                        <img src="" alt="hello" id="char2" @click="myChar($event)">
-                    </div>
-                    <div class="char-box col-sm-2 col-md"></div>
-                    <div class="char-box col-sm-2 col-md"></div>
-                    <div class="char-box col-sm-2 col-md"></div>
+                <div class="radioGroupChar">
+                    <input type="radio" id="char1" name="leChar">
+                    <label for="char1"><img src="" alt="Char"></label>
+                    <input type="radio" id="char2" name="leChar">
+                    <label for="char2"><img src="" alt="Char"></label>
+                    <input type="radio" id="char3" name="leChar">
+                    <label for="char3"><img src="" alt="Char"></label>
+                    <input type="radio" id="char4" name="leChar">
+                    <label for="char4"><img src="" alt="Char"></label>
+                    <input type="radio" id="char5" name="leChar">
+                    <label for="char5"><img src="" alt="Char"></label>
                 </div>
                 <button @click="goBack">BACK</button>
                 <button @click="playGame">PLAY</button>
@@ -165,9 +166,6 @@
                     this.theBoard = event.currentTarget.id;
                 }
                 this.isActive = !this.isActive;
-            },
-            myChar(event){
-
             },
             rollDice(event) {
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
