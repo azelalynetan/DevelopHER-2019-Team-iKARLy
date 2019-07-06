@@ -77,7 +77,7 @@ input[type="radio"]:checked + label {
     filter: grayscale(100%);
 }
 
-.character {
+.character, #sidenav #theChibi {
     width: 100%;
 }
 

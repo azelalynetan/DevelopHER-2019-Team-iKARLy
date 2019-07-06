@@ -51,9 +51,9 @@
                     <?php if (is_array($characters) || is_object($characters)):
                         foreach ($characters as $char):?>
                     <div class="col-sm">
-                        <input type="radio" id="<?= $char->women_id?>" @click="myChar($event)" name="leChar"
+                        <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar"
                                :class="{charLocked: <?= $char->unlocked?>}">
-                        <label for="<?= $char->women_id?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>"></label>
+                        <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>"></label>
                     </div>
                     <?php endforeach;
                     endif; ?>
@@ -72,47 +72,47 @@
                             <table>
                                 <tr>
                                     <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
+                                    <td id="box2"></td>
+                                    <td id="box3"></td>
+                                    <td id="box4"></td>
+                                    <td id="box5"></td>
+                                    <td id="box6-1"></td>
+                                    <td id="box6-2"></td>
                                 </tr>
                                 <tr>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
+                                    <td id="box7"></td>
+                                    <td id="box8"></td>
+                                    <td id="box9"></td>
+                                    <td id="box10"></td>
+                                    <td id="box11"></td>
+                                    <td id="box12-1"></td>
+                                    <td id="box12-2"></td>
                                 </tr>
                                  <tr>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
+                                    <td id="box13"></td>
+                                    <td id="box14"></td>
+                                    <td id="box15"></td>
+                                    <td id="box16"></td>
+                                    <td id="box17"></td>
+                                    <td id="box18-1"></td>
+                                    <td id="box18-2"></td>
                                 </tr>
                                  <tr>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
+                                    <td id="box19"></td>
+                                    <td id="box20"></td>
+                                    <td id="box21"></td>
+                                    <td id="box22"></td>
+                                    <td id="box23"></td>
+                                    <td id="box24-1"></td>
+                                    <td id="box25-2"></td>
                                 </tr>
                             </table>
                         </div>
                     </section>
                     <section id="sidenav" class="col-2">
                         <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
-                        <img src="" alt="chibi">
-                        <a href="<?=base_url()?>game/logout">QUIT</a>
+                        <img id="theChibi" :src="myChibi">
+                        <a href="<?=base_url()?>game/logout" class="btn btn-primary">QUIT</a>
                     </section>
                 </div>
             </div>
@@ -126,6 +126,7 @@
             isActive: false,
             theBoard: "",
             theChar: "",
+            myChibi: "",
             diceNum: 6,
             diceImg: '<?=base_url()?>assets/images/dice_6.png',
             gameIsRunning: false,
@@ -163,7 +164,8 @@
                     this.choseCharacter = false;
                     this.gameIsPlaying = true;
                 }
-                console.log(this.theChar);
+                this.myChibi = "<?=base_url()?>uploads/" + this.theChar;
+                console.log(this.myChibi);
             },
             myBoard(event) {
                 if(this.theBoard) {
