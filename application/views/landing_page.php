@@ -23,7 +23,7 @@
 
         <!-- CHOOSE A BOARD -->
         <div id="boards" v-if="choseBoard">
-            <div class="container">
+            <div class="bg-yellow container">
                 <h2>Choose a board</h2>
                 <div class="board-row row">
                     <div class="board-box col-sm-3 col-md">
