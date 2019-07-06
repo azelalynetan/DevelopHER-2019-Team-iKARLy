@@ -61,7 +61,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + label {
-    border: solid 2px green;
+    box-shadow: 10px 5px 5px red;
 }
 
 .radioGroupChar label {

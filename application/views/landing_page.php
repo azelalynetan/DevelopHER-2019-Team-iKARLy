@@ -48,16 +48,16 @@
             <div class="container bg-yellow">
                 <h2>Choose a character</h2>
                 <div class="radioGroupChar">
-                    <input type="radio" id="char1" name="leChar">
-                    <label for="char1"><img class="character" src="<?=base_url()?>assets/images/Aisa Mijano.png" alt="Char"></label>
-                    <input type="radio" id="char2" name="leChar">
-                    <label for="char2"><img class="character" src="<?=base_url()?>assets/images/Anne Aaron.png" alt="Char"></label>
-                    <input type="radio" id="char3" name="leChar">
-                    <label for="char3"><img class="character" src="<?=base_url()?>assets/images/Carmina Bayombong.png" alt="Char"></label>
-                    <input type="radio" id="char4" name="leChar">
-                    <label for="char4"><img class="character" src="<?=base_url()?>assets/images/KarenBatungbacal.png" alt="Char"></label>
-                    <input type="radio" id="char5" name="leChar">
-                    <label for="char5"><img class="character" src="<?=base_url()?>assets/images/Maria Ressa.png" alt="Char"></label>
+                    <input type="radio" id="char1" @click="myChar($event)" name="leChar">
+                    <label for="char1"><img src="" alt="Char"></label>
+                    <input type="radio" id="char2" @click="myChar($event)" name="leChar">
+                    <label for="char2"><img src="" alt="Char"></label>
+                    <input type="radio" id="char3" @click="myChar($event)" name="leChar">
+                    <label for="char3"><img src="" alt="Char"></label>
+                    <input type="radio" id="char4" @click="myChar($event)" name="leChar">
+                    <label for="char4"><img src="" alt="Char"></label>
+                    <input type="radio" id="char5" @click="myChar($event)" name="leChar">
+                    <label for="char5"><img src="" alt="Char"></label>
                 </div>
                 <button @click="goBack">BACK</button>
                 <button @click="playGame">PLAY</button>
@@ -212,7 +212,7 @@
                 this.choseCharacter = false;
             },
             playGame() {
-                if(this.theBoard) {
+                if(this.theChar) {
                     this.choseCharacter = false;
                     this.gameIsPlaying = true;
                 }
@@ -224,6 +224,9 @@
                     this.theBoard = event.currentTarget.id;
                 }
                 this.isActive = !this.isActive;
+            },
+            myChar(event) {
+                this.theChar = event.currentTarget.id;
             },
             rollDice(event) {
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
