@@ -12,10 +12,25 @@
 
 <body>
     <div id="app" style="text-align: center;">
+        <!-- LANDING PAGE -->
         <div id="landing" class="container">
             <h1>title here</h1>
             <button>start</button>
         </div>
+
+        <!-- CHOOSE A BOARD -->
+        <div id="boards">
+            <div class="container">
+                <h2>Choose a board</h2>
+                <div class="board-row row">
+                    <div class="board-box col-sm-3 col-md"></div>
+                    <div class="board-box col-sm-3 col-md"></div>
+                </div>
+                <button>next</button>
+            </div>
+        </div>
+
+        <!-- CHOOSE A CHARACTER -->
         <div id="characters">
             <div class="container">
                 <h2>Choose a character</h2>
@@ -29,8 +44,10 @@
                 <button>play</button>
             </div>
         </div>
+
+        <!-- GAME START -->
         <div id="in-game">
-            <section id="board-game">
+            <section id="box-tiles">
                 <div id="box1"></div>
                 <div id="box2"></div>
                 <div id="box3"></div>
