@@ -101,7 +101,7 @@ input[type="radio"]:checked + label {
 }
 
 .tb-boardgame {
-    background-image: url('../images/board-pieces.png');
+    background-image: url('../images/board-final-piece.png');
     background-size: 100%;
     background-repeat: no-repeat;
 }
