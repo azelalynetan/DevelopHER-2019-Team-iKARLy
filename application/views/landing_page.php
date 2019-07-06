@@ -67,6 +67,9 @@
             <div class="container ">
                 <div class="row">
                     <section id="box-tiles" class="col-9 bg-yellow">
+                        <div class="logo">
+                            <img src="<?=base_url()?>assets/images/board-name.png" class="board-img">
+                        </div>
                         <div class="tb-boardgame">
                             <table>
                                 <tr>
