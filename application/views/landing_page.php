@@ -66,45 +66,49 @@
 
         <!-- GAME START -->
         <div id="in-game" v-if="gameIsPlaying">
-            <div class="container">
+            <div class="container ">
                 <div class="row">
-                    <section id="box-tiles" class="col-10">
-                        <div class="row">
-                            <div id="box1" class="col-sm"></div>
-                            <div id="box2" class="col-sm"></div>
-                            <div id="box3" class="col-sm"></div>
-                            <div id="box4" class="col-sm"></div>
-                            <div id="box5" class="col-sm"></div>
-                            <div id="box6" class="col-sm"></div>
+                    <section id="box-tiles" class="col-10 bg-yellow">
+                        <div class="tb-boardgame">
+                            <table>
+                                <tr>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                </tr>
+                                <tr>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                </tr>
+                                 <tr>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                </tr>
+                                 <tr>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                    <td id="box1"></td>
+                                </tr>
+                            </table>
                         </div>
-                        <!-- END OF ROW 1 -->
-                        <div class="row">
-                            <div id="box7" class="col-sm"></div>
-                            <div id="box8" class="col-sm"></div>
-                            <div id="box9" class="col-sm"></div>
-                            <div id="box10" class="col-sm"></div>
-                            <div id="box11" class="col-sm"></div>
-                            <div id="box12" class="col-sm"></div>
-                        </div>
-                        <!-- END OF ROW 2 -->
-                        <div class="row">
-                            <div id="box13" class="col-sm"></div>
-                            <div id="box14" class="col-sm"></div>
-                            <div id="box15" class="col-sm"></div>
-                            <div id="box16" class="col-sm"></div>
-                            <div id="box17" class="col-sm"></div>
-                            <div id="box18" class="col-sm"></div>
-                        </div>
-                        <!-- END OF ROW 3 -->
-                        <div class="row">
-                            <div id="box19" class="col-sm"></div>
-                            <div id="box20" class="col-sm"></div>
-                            <div id="box21" class="col-sm"></div>
-                            <div id="box22" class="col-sm"></div>
-                            <div id="box23" class="col-sm"></div>
-                            <div id="box24" class="col-sm"></div>
-                        </div>
-                        <!-- END OF ROW 4 -->
                     </section>
                     <section id="sidenav" class="col-2">
                         <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
