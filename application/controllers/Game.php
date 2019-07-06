@@ -5,7 +5,7 @@ class Game extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('db_query');
+        $this->load->model('db_queries');
     }
 
     public function index() {
@@ -26,7 +26,7 @@ class Game extends CI_Controller {
                 'unlocked' => 1,
             );
 
-            if(!$this->db_query->insertData('women_tbl',$data)):
+            if(!$this->db_queries->insertData('women_tbl',$data)):
                 echo "failed insert to db";
             endif;
         else: echo "failed upload"; endif;
