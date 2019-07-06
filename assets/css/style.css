@@ -75,11 +75,6 @@ input[type="radio"]:checked + label {
     width: 100%;
 }
 
-.charLocked {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-}
-
 .character, #sidenav #theChibi {
     width: 100%;
 }
@@ -119,6 +114,13 @@ input[type="radio"]:checked + label {
     /*border: 1px solid #000;*/
     height: 130px;
     width: 150px;
+    padding-left: 25px;
+    padding-bottom: 20px;
+
 }.tb-boardgame img {
-     width: 100%;
+     width: 50%;
+ }
+
+ .noChibi {
+     display: none;
  }

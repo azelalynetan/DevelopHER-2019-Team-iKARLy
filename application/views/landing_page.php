@@ -52,7 +52,7 @@
                         foreach ($characters as $char):?>
                     <div class="col-sm">
                         <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar">
-                        <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>.png"></label>
+                        <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>.png"><?=$char->women_name?></label>
                     </div>
                     <?php endforeach;
                     endif; ?>
@@ -70,40 +70,40 @@
                         <div class="tb-boardgame">
                             <table>
                                 <tr>
-                                    <td id="box1"><img :src="myChibiHead" alt=""></td>
-                                    <td id="box2"></td>
-                                    <td id="box3"></td>
-                                    <td id="box4"></td>
-                                    <td id="box5"></td>
-                                    <td id="box6-1"></td>
-                                    <td id="box6-2"></td>
+                                    <td id="box25"></td>
+                                    <td id="box24"></td>
+                                    <td id="box23"></td>
+                                    <td id="box22"></td>
+                                    <td id="box21"></td>
+                                    <td id="box20"></td>
+                                    <td id="box19-2"></td>
                                 </tr>
                                 <tr>
-                                    <td id="box7"></td>
-                                    <td id="box8"></td>
-                                    <td id="box9"></td>
-                                    <td id="box10"></td>
-                                    <td id="box11"></td>
-                                    <td id="box12-1"></td>
-                                    <td id="box12-2"></td>
-                                </tr>
-                                 <tr>
-                                    <td id="box13"></td>
+                                    <td id="box13-2"></td>
                                     <td id="box14"></td>
                                     <td id="box15"></td>
                                     <td id="box16"></td>
                                     <td id="box17"></td>
-                                    <td id="box18-1"></td>
-                                    <td id="box18-2"></td>
+                                    <td id="box18"></td>
+                                    <td id="box19-1"></td>
                                 </tr>
                                  <tr>
-                                    <td id="box19"></td>
-                                    <td id="box20"></td>
-                                    <td id="box21"></td>
-                                    <td id="box22"></td>
-                                    <td id="box23"></td>
-                                    <td id="box24-1"></td>
-                                    <td id="box25-2"></td>
+                                    <td id="box13-1"></td>
+                                    <td id="box12"></td>
+                                    <td id="box11"></td>
+                                    <td id="box10"></td>
+                                    <td id="box9"></td>
+                                    <td id="box8"></td>
+                                    <td id="box7-2"></td>
+                                </tr>
+                                 <tr>
+                                    <td id="box1"></td>
+                                    <td id="box2"></td>
+                                    <td id="box3"></td>
+                                    <td id="box4"></td>
+                                    <td id="box5"></td>
+                                    <td id="box6"></td>
+                                    <td id="box7-1"></td>
                                 </tr>
                             </table>
                         </div>
@@ -111,6 +111,7 @@
                     <section id="sidenav" class="col-2">
                         <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
                         <img id="theChibi" :src="myChibi">
+                        <p></p>
                         <a href="<?=base_url()?>game/logout" class="btn btn-primary">QUIT</a>
                     </section>
                 </div>
@@ -123,6 +124,7 @@
         el: '#app',
         data: {
             isActive: false,
+            isNoChibi: true,
             theBoard: "",
             theChar: "",
             myChibi: "",
@@ -183,10 +185,22 @@
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
                 this.diceImg = "<?=base_url()?>assets/images/dice_" + this.diceNum + ".png";
 
-                moveMyChar(this.diceNum);
+                this.moveMyChar(this.diceNum);
             },
             moveMyChar(num) {
+                this.currentPosition += num;
 
+                if(this.currentPosition == 7) {
+                    document.getElementById("box7-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else if(this.currentPosition == 13) {
+                    document.getElementById("box13-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else if(this.currentPosition == 19) {
+                    document.getElementById("box19-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else {
+                    document.getElementById("box" + this.currentPosition).innerHTML = '<img src="' + this.myChibiHead + '">';
+                }
+
+                console.log(this.currentPosition);
             }
         }
     });
