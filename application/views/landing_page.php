@@ -46,8 +46,12 @@
             <div class="container">
                 <h2>Choose a character</h2>
                 <div class="char-row row">
-                    <div id="char1" @click="myChar($event)" class="char-box col-sm-2 col-md" style="cursor: pointer"></div>
-                    <div id="char2" @click="myChar($event)" class="char-box col-sm-2 col-md" style="cursor: pointer"></div>
+                    <div class="char-box col-sm-2 col-md" style="cursor: pointer;">
+                        <img src="" alt="hello" id="char1" @click="myChar($event)">
+                    </div>
+                    <div class="char-box col-sm-2 col-md" style="cursor: pointer">
+                        <img src="" alt="hello" id="char2" @click="myChar($event)">
+                    </div>
                     <div class="char-box col-sm-2 col-md"></div>
                     <div class="char-box col-sm-2 col-md"></div>
                     <div class="char-box col-sm-2 col-md"></div>
@@ -115,6 +119,7 @@
         data: {
             isActive: false,
             theBoard: "",
+            theChar: "",
             diceNum: 6,
             diceImg: '<?=base_url()?>assets/images/dice_6.png',
             gameIsRunning: false,
@@ -133,6 +138,9 @@
                 this.choseBoard = false;
                 this.choseCharacter = false;
                 this.gameIsPlaying = false;
+                this.theBoard = "";
+                this.isActive = false;
+                this.currentPosition = 0;
             },
             boardChosen() {
                 if(this.theBoard) {
@@ -145,8 +153,10 @@
                 this.choseCharacter = false;
             },
             playGame() {
-                this.choseCharacter = false;
-                this.gameIsPlaying = true;
+                if(this.theBoard) {
+                    this.choseCharacter = false;
+                    this.gameIsPlaying = true;
+                }
             },
             myBoard(event) {
                 if(this.theBoard) {
@@ -155,6 +165,9 @@
                     this.theBoard = event.currentTarget.id;
                 }
                 this.isActive = !this.isActive;
+            },
+            myChar(event){
+
             },
             rollDice(event) {
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
