@@ -24,7 +24,8 @@
                 <h2>Choose a board</h2>
                 <div class="board-row row">
                     <div class="board-box col-sm-3 col-md">
-                        <img src="" id="board1" @click="myBoard($event)" class="board-img">
+                        <img src="" id="board1" @click="myBoard($event)" class="board-img" style="cursor: pointer"
+                        :class="{activeBox: isActive}">
                         Tech Board
                     </div>
                     <div class="board-box col-sm-3 col-md">
@@ -113,6 +114,7 @@
     new Vue({
         el: '#app',
         data: {
+            isActive: false,
             theBoard: "",
             diceNum: 6,
             gameIsRunning: false,
@@ -147,8 +149,12 @@
                 this.gameIsPlaying = true;
             },
             myBoard(event) {
-                this.theBoard = event.currentTarget.id;
-                document.getElementById(this.theBoard).style.boxShadow = '10px 5px 5px red';
+                if(this.theBoard) {
+                    this.theBoard = "";
+                } else {
+                    this.theBoard = event.currentTarget.id;
+                }
+                this.isActive = !this.isActive;
             }
         }
     });
