@@ -197,29 +197,29 @@
             },
             moveMyChar(num) {
                 this.currentPosition += num;
+                console.log(this.currentPosition);
 
-                if(this.flag < 1) {
-                    document.getElementById(this.currentPosition).innerHTML = '<img src="'+ this.myChibiHead +'">';
-                    this.tempPos = this.currentPosition;
-                } else if(this.currentPosition == 7 && this.flag > 1) {
-                    document.getElementById(this.tempPos).innerHTML = '';
-                    this.tempPos = "box7-1";
-                    document.getElementById(this.tempPos).innerHTML = '<img src="'+ this.myChibiHead +'">';
-                } else if(this.currentPosition == 13 && this.flag > 1) {
-                    document.getElementById(this.tempPos).innerHTML = '';
-                    this.tempPos = "box13-1";
-                    document.getElementById("box13-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
-                } else if(this.currentPosition == 19 && this.flag > 1) {
-                    document.getElementById(this.tempPos).innerHTML = '';
-                    this.tempPos = "box19-1";
-                    document.getElementById("box19-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
-                } else if (this.flag > 1) {
+                if(this.flag == 0) {
+                    document.getElementById("box" + this.currentPosition).innerHTML = '<img src="' + this.myChibiHead + '">';
+                    this.tempPos = "box" + this.currentPosition;
+                    this.flag = 1;
+                } else if (this.flag == 1 && (this.currentPosition != 7 || this.currentPosition != 13 || this.currentPosition != 19)) {
                     document.getElementById(this.tempPos).innerHTML = '';
                     this.tempPos = "box" + this.currentPosition;
                     document.getElementById(this.tempPos).innerHTML = '<img src="' + this.myChibiHead + '">';
+                } else if(this.currentPosition == 7 && this.flag == 1) {
+                    document.getElementById(this.tempPos).innerHTML = '';
+                    this.tempPos = "box7-1";
+                    document.getElementById(this.tempPos).innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else if(this.currentPosition == 13 && this.flag == 1) {
+                    document.getElementById(this.tempPos).innerHTML = '';
+                    this.tempPos = "box13-1";
+                    document.getElementById("box13-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else if(this.currentPosition == 19 && this.flag == 1) {
+                    document.getElementById(this.tempPos).innerHTML = '';
+                    this.tempPos = "box19-1";
+                    document.getElementById("box19-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
                 }
-
-                console.log(this.currentPosition);
             }
         }
     });
