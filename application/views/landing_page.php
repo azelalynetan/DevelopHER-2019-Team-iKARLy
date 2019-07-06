@@ -59,7 +59,7 @@
 
         <!-- GAME START -->
         <div id="in-game" v-if="gameIsPlaying">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <section id="box-tiles" class="col-10">
                         <div class="row">
