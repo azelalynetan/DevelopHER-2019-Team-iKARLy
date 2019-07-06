@@ -9,7 +9,12 @@ class Game extends CI_Controller {
     }
 
     public function index() {
-		$this->load->view('landing_page');
+
+        $char_stuff = array (
+            'characters' => $this->item_model->fetch('women_tbl')
+        );
+
+		$this->load->view('landing_page', $char_stuff);
 	}
 
 	public function form_upload() {
@@ -34,5 +39,9 @@ class Game extends CI_Controller {
                 echo "failed insert to db";
             endif;
         else: echo "failed upload"; endif;
+    }
+
+    public function logout() {
+        redirect('index');
     }
 }
