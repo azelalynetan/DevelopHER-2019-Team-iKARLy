@@ -6,6 +6,8 @@
 	<title>Team iKARLy</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -15,27 +17,17 @@
             <button>start</button>
         </div>
         <div id="characters">
-            <section id="international">
-                <h1>Local</h1>
-                <div class="char-row">
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
+            <div class="container">
+                <h2>Choose a character</h2>
+                <div class="char-row row">
+                    <div class="char-box col-sm-2 col-md"></div>
+                    <div class="char-box col-sm-2 col-md"></div>
+                    <div class="char-box col-sm-2 col-md"></div>
+                    <div class="char-box col-sm-2 col-md"></div>
+                    <div class="char-box col-sm-2 col-md"></div>
                 </div>
-            </section>
-            <section id="local">
-                <h1>International</h1>
-                <div class="char-row">
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
-                    <div class="char-box"></div>
-                </div>
-            </section>
-            <button>play</button>
+                <button>play</button>
+            </div>
         </div>
         <div id="in-game">
             <section id="board-game">
