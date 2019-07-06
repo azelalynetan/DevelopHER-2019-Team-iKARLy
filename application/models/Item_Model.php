@@ -1,6 +1,6 @@
 <?php
 
-class DB_Queries extends CI_Model {
+class Item_Model extends CI_Model {
 
     public function insertData($table, $data) {
         $this->db->insert($table, $data);
