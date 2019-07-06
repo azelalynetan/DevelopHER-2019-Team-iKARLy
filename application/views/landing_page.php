@@ -27,15 +27,14 @@
                 <h2>Choose a board</h2>
                 <div class="board-row row">
                     <div class="board-box col-sm-3 col-md">
-                        <img src="" id="board1" @click="myBoard($event)" class="board-img" style="cursor: pointer"
-                        :class="{activeBox: isActive}">
+                        <img src="<?=base_url()?>assets/images/select.png" id="board1" @click="myBoard($event)" class="board-img" style="cursor: pointer" :class="{activeBox: isActive}">
                         Tech Board
                     </div>
                     <div class="board-box col-sm-3 col-md">
-                        <img src="" class="board-img">
+                        <img src="<?=base_url()?>assets/images/select-locked.png" class="board-img">
                         Finish other boards to unlock
                     </div><div class="board-box col-sm-3 col-md">
-                        <img src="" class="board-img">
+                        <img src="<?=base_url()?>assets/images/select-locked.png" class="board-img">
                         Finish other boards to unlock
                     </div>
                 </div>
