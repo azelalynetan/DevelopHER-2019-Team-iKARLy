@@ -4,7 +4,7 @@ This is Team iKARLy's submission for Accenture's DevelopHER 2019 Hackathon!
 
 The team name actually includes the name of all the team members:
 
-* Krizza Bullecer
+* [Krizza Bullecer](https://github.com/sirbully)
 * Azel Tan
 * Rosalie Rioja
 * Layne Bañez
