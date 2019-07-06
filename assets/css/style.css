@@ -5,7 +5,6 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden;
 }
 
 #app {
@@ -13,23 +12,6 @@ body {
     /*display: flex;
     height: 100%;
     align-items: center;*/
-    background-image: url('../images/board-bg.png');
-    padding:    60px;
-    background-size: 100%;
-}
-
-/* General styles */
-
-.board-name {
-    display: block;
-    text-align: center;
-    margin: auto;
-}
-
-.bg-yellow {
-    padding: 120px;
-    background-color: #feea37;
-    opacity: .9;
 }
 
 .char-box {
