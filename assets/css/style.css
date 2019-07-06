@@ -14,7 +14,7 @@ body {
     height: 100%;
     align-items: center;*/
     background-image: url('../images/board-bg.png');
-    padding:    60px;
+    padding: 40px;
     background-size: 100%;
 }
 
@@ -35,8 +35,11 @@ body {
     height: 400px;
 }
 
+#box-tiles {
+    padding: 30px 50px;
+}
+
 #box-tiles .row div {
-    border: 1px solid #000;
     height: 200px;
 }
 
@@ -68,7 +71,11 @@ input[type="radio"]:checked + label {
     cursor: pointer;
 }
 
-.character {
+.radioGroupChar img {
+    width: 100%;
+}
+
+.character, #sidenav #theChibi {
     width: 100%;
 }
 
@@ -85,7 +92,7 @@ input[type="radio"]:checked + label {
 .boardgame li {
     height: 40px;
     width: 40px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     display: inline-block;
 }
 
@@ -104,7 +111,16 @@ input[type="radio"]:checked + label {
 }
 
 .tb-boardgame td {
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     height: 130px;
     width: 150px;
-}
+    padding-left: 25px;
+    padding-bottom: 20px;
+
+}.tb-boardgame img {
+     width: 50%;
+ }
+
+ .noChibi {
+     display: none;
+ }

@@ -42,6 +42,6 @@ class Game extends CI_Controller {
     }
 
     public function logout() {
-        redirect('index');
+        redirect('game');
     }
 }

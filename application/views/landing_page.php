@@ -47,12 +47,13 @@
         <div id="characters" v-if="choseCharacter">
             <div class="container bg-yellow">
                 <h2>Choose a character</h2>
-                <div class="radioGroupChar">
+                <div class="radioGroupChar row">
                     <?php if (is_array($characters) || is_object($characters)):
                         foreach ($characters as $char):?>
-                    <input type="radio" id="char1" @click="myChar($event)" name="leChar"
-                    :class="{}">
-                    <label for="char1"><img src=""></label>
+                    <div class="col-sm">
+                        <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar">
+                        <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>.png"><?=$char->women_name?></label>
+                    </div>
                     <?php endforeach;
                     endif; ?>
                 </div>
@@ -69,52 +70,49 @@
                         <div class="tb-boardgame">
                             <table>
                                 <tr>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
+                                    <td id="box25"></td>
+                                    <td id="box24"></td>
+                                    <td id="box23"></td>
+                                    <td id="box22"></td>
+                                    <td id="box21"></td>
+                                    <td id="box20"></td>
+                                    <td id="box19-2"></td>
                                 </tr>
                                 <tr>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
+                                    <td id="box13-2"></td>
+                                    <td id="box14"></td>
+                                    <td id="box15"></td>
+                                    <td id="box16"></td>
+                                    <td id="box17"></td>
+                                    <td id="box18"></td>
+                                    <td id="box19-1"></td>
+                                </tr>
+                                 <tr>
+                                    <td id="box13-1"></td>
+                                    <td id="box12"></td>
+                                    <td id="box11"></td>
+                                    <td id="box10"></td>
+                                    <td id="box9"></td>
+                                    <td id="box8"></td>
+                                    <td id="box7-2"></td>
                                 </tr>
                                  <tr>
                                     <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                </tr>
-                                 <tr>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
-                                    <td id="box1"></td>
+                                    <td id="box2"></td>
+                                    <td id="box3"></td>
+                                    <td id="box4"></td>
+                                    <td id="box5"></td>
+                                    <td id="box6"></td>
+                                    <td id="box7-1"></td>
                                 </tr>
                             </table>
                         </div>
                     </section>
                     <section id="sidenav" class="col-2">
-                        <div class="wrap-dice">
-                            <span>Roll the dice</span>
-                            <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
-                        </div>
-                        
-                        <img src="" alt="chibi">
-                        <a href="<?=base_url()?>game/logout">QUIT</a>
+                        <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
+                        <img id="theChibi" :src="myChibi">
+                        <p></p>
+                        <a href="<?=base_url()?>game/logout" class="btn btn-primary">QUIT</a>
                     </section>
                 </div>
             </div>
@@ -126,8 +124,11 @@
         el: '#app',
         data: {
             isActive: false,
+            isNoChibi: true,
             theBoard: "",
             theChar: "",
+            myChibi: "",
+            myChibiHead: "",
             diceNum: 6,
             diceImg: '<?=base_url()?>assets/images/dice_6.png',
             gameIsRunning: false,
@@ -165,7 +166,9 @@
                     this.choseCharacter = false;
                     this.gameIsPlaying = true;
                 }
-                console.log(this.theChar);
+                this.myChibi = "<?=base_url()?>uploads/" + this.theChar + ".png";
+                this.myChibiHead = "<?=base_url()?>uploads/" + this.theChar + "_head.png";
+                console.log(this.myChibiHead);
             },
             myBoard(event) {
                 if(this.theBoard) {
@@ -181,6 +184,23 @@
             rollDice(event) {
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
                 this.diceImg = "<?=base_url()?>assets/images/dice_" + this.diceNum + ".png";
+
+                this.moveMyChar(this.diceNum);
+            },
+            moveMyChar(num) {
+                this.currentPosition += num;
+
+                if(this.currentPosition == 7) {
+                    document.getElementById("box7-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else if(this.currentPosition == 13) {
+                    document.getElementById("box13-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else if(this.currentPosition == 19) {
+                    document.getElementById("box19-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else {
+                    document.getElementById("box" + this.currentPosition).innerHTML = '<img src="' + this.myChibiHead + '">';
+                }
+
+                console.log(this.currentPosition);
             }
         }
     });
