@@ -49,15 +49,15 @@
                 <h2>Choose a character</h2>
                 <div class="radioGroupChar">
                     <input type="radio" id="char1" name="leChar">
-                    <label for="char1"><img src="" alt="Char"></label>
+                    <label for="char1"><img src="<?=base_url()?>assets/images/Aisa Mijano.png" alt="Char"></label>
                     <input type="radio" id="char2" name="leChar">
-                    <label for="char2"><img src="" alt="Char"></label>
+                    <label for="char2"><img src="<?=base_url()?>assets/images/Anne Aaron.png" alt="Char"></label>
                     <input type="radio" id="char3" name="leChar">
-                    <label for="char3"><img src="" alt="Char"></label>
+                    <label for="char3"><img src="<?=base_url()?>assets/images/Carmina Bayombong.png" alt="Char"></label>
                     <input type="radio" id="char4" name="leChar">
-                    <label for="char4"><img src="" alt="Char"></label>
+                    <label for="char4"><img src="<?=base_url()?>assets/images/KarenBatungbacal.png" alt="Char"></label>
                     <input type="radio" id="char5" name="leChar">
-                    <label for="char5"><img src="" alt="Char"></label>
+                    <label for="char5"><img src="<?=base_url()?>assets/images/Maria Ressa.png" alt="Char"></label>
                 </div>
                 <button @click="goBack">BACK</button>
                 <button @click="playGame">PLAY</button>
