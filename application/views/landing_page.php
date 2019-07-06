@@ -100,8 +100,7 @@
                         <!-- END OF ROW 4 -->
                     </section>
                     <section id="sidenav" class="col-2">
-                        <p>{{ diceNum }}</p>
-                        <img src="" alt="dice" @click="rollDice" style="cursor: pointer">
+                        <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
                         <img src="" alt="chibi">
                         <button @click="stopGame">QUIT</button>
                     </section>
@@ -117,6 +116,7 @@
             isActive: false,
             theBoard: "",
             diceNum: 6,
+            diceImg: '<?=base_url()?>assets/images/dice_6.png',
             gameIsRunning: false,
             choseBoard: false,
             choseCharacter: false,
@@ -155,6 +155,10 @@
                     this.theBoard = event.currentTarget.id;
                 }
                 this.isActive = !this.isActive;
+            },
+            rollDice(event) {
+                this.diceNum = Math.floor(Math.random() * 6) + 1;
+                this.diceImg = "<?=base_url()?>assets/images/dice_" + this.diceNum + ".png";
             }
         }
     });
