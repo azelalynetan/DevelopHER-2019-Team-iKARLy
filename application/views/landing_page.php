@@ -145,6 +145,8 @@
             choseCharacter: false,
             gameIsPlaying: false,
             currentPosition: 0,
+            tempPos: "",
+            flag: 0,
         },
         methods: {
             startGame() {
@@ -199,14 +201,25 @@
             moveMyChar(num) {
                 this.currentPosition += num;
 
-                if(this.currentPosition == 7) {
-                    document.getElementById("box7-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
-                } else if(this.currentPosition == 13) {
+                if(this.flag < 1) {
+                    document.getElementById(this.currentPosition).innerHTML = '<img src="'+ this.myChibiHead +'">';
+                    this.tempPos = this.currentPosition;
+                } else if(this.currentPosition == 7 && this.flag > 1) {
+                    document.getElementById(this.tempPos).innerHTML = '';
+                    this.tempPos = "box7-1";
+                    document.getElementById(this.tempPos).innerHTML = '<img src="'+ this.myChibiHead +'">';
+                } else if(this.currentPosition == 13 && this.flag > 1) {
+                    document.getElementById(this.tempPos).innerHTML = '';
+                    this.tempPos = "box13-1";
                     document.getElementById("box13-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
-                } else if(this.currentPosition == 19) {
+                } else if(this.currentPosition == 19 && this.flag > 1) {
+                    document.getElementById(this.tempPos).innerHTML = '';
+                    this.tempPos = "box19-1";
                     document.getElementById("box19-1").innerHTML = '<img src="'+ this.myChibiHead +'">';
-                } else {
-                    document.getElementById("box" + this.currentPosition).innerHTML = '<img src="' + this.myChibiHead + '">';
+                } else if (this.flag > 1) {
+                    document.getElementById(this.tempPos).innerHTML = '';
+                    this.tempPos = "box" + this.currentPosition;
+                    document.getElementById(this.tempPos).innerHTML = '<img src="' + this.myChibiHead + '">';
                 }
 
                 console.log(this.currentPosition);
