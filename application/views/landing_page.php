@@ -41,8 +41,8 @@
                         Finish other boards to unlock
                     </div>
                 </div>
-                <button @click="boardChosen">NEXT</button>
-                <button @click="stopGame">X</button>
+                <button @click="stopGame" class="btn btn-secondary">BACK</button>
+                <button @click="boardChosen" class="btn btn-primary">NEXT</button>
             </div>
         </div>
 
@@ -63,8 +63,8 @@
                     <?php endforeach;
                     endif; ?>
                 </div>
-                <button @click="goBack">BACK</button>
-                <button @click="playGame">PLAY</button>
+                <button @click="goBack" class="btn btn-secondary">BACK</button>
+                <button @click="playGame" class="btn btn-primary">PLAY</button>
             </div>
         </div>
 
