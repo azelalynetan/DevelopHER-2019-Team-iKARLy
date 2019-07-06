@@ -51,8 +51,7 @@
                     <?php if (is_array($characters) || is_object($characters)):
                         foreach ($characters as $char):?>
                     <div class="col-sm">
-                        <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar"
-                               :class="{charLocked: <?= $char->unlocked?>}">
+                        <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar">
                         <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>"></label>
                     </div>
                     <?php endforeach;
@@ -71,7 +70,7 @@
                         <div class="tb-boardgame">
                             <table>
                                 <tr>
-                                    <td id="box1"></td>
+                                    <td id="box1"><img :src="myChibiHead" alt=""></td>
                                     <td id="box2"></td>
                                     <td id="box3"></td>
                                     <td id="box4"></td>
@@ -127,6 +126,7 @@
             theBoard: "",
             theChar: "",
             myChibi: "",
+            myChibiHead: "",
             diceNum: 6,
             diceImg: '<?=base_url()?>assets/images/dice_6.png',
             gameIsRunning: false,
@@ -164,8 +164,9 @@
                     this.choseCharacter = false;
                     this.gameIsPlaying = true;
                 }
-                this.myChibi = "<?=base_url()?>uploads/" + this.theChar;
-                console.log(this.myChibi);
+                this.myChibi = "<?=base_url()?>uploads/" + this.theChar + ".png";
+                this.myChibiHead = "<?=base_url()?>uploads/" + this.theChar + "_head.png";
+                console.log(this.myChibiHead);
             },
             myBoard(event) {
                 if(this.theBoard) {
@@ -181,6 +182,11 @@
             rollDice(event) {
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
                 this.diceImg = "<?=base_url()?>assets/images/dice_" + this.diceNum + ".png";
+
+                moveMyChar(this.diceNum);
+            },
+            moveMyChar(num) {
+
             }
         }
     });
