@@ -52,7 +52,7 @@
                         foreach ($characters as $char):?>
                     <div class="col-sm">
                         <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar">
-                        <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>"></label>
+                        <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>.png"></label>
                     </div>
                     <?php endforeach;
                     endif; ?>
