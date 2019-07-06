@@ -25,9 +25,9 @@ class Game extends CI_Controller {
 
         if ($this->upload->do_upload('charfile')):
             $data = array(
-                'women_name' => 'Aisa Mijano',
+                'women_name' => 'Maria Ressa',
                 'women_img' => $this->upload->data('file_name'),
-                'unlocked' => 1,
+                'unlocked' => 0,
             );
 
             if(!$this->item_model->insertData('women_tbl',$data)):
