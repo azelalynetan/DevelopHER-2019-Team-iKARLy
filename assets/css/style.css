@@ -37,6 +37,15 @@ body {
     left: -35px;
 }
 
+#landing .btn {
+    padding: 30px 40px;
+    border-radius: 100%;
+    font-size: 22px;
+    margin: 40px;
+    font-weight: 700;
+    box-shadow: 2px 2px #365271;
+}
+
 .char-box {
     border: 1px solid #000;
     height: 400px;

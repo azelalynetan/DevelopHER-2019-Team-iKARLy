@@ -17,7 +17,7 @@
             <div class="container bg-yellow">
                 <!-- <h1>title here</h1> -->
                 <img class="board-name" src="<?=base_url()?>assets/images/board-name.png">
-                <button @click="startGame">START</button>
+                <button @click="startGame" class="btn btn-primary">START</button>
             </div>
         </div>
 
