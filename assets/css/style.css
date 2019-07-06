@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #app {
@@ -72,3 +72,39 @@ input[type="radio"]:checked + label {
     width: 100%;
 }
 
+/* for boardgame */
+
+.boardgame li:nth-child(odd) {
+    background: red;
+}
+
+.boardgame li:nth-child(even) {
+    background: blue;
+}
+
+.boardgame li {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.purple {
+    background-color: #CD5396;
+}
+
+.blue {
+    background-color: #ADD0FD;
+}
+
+.tb-boardgame {
+    background-image: url('../images/board-final-piece.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.tb-boardgame td {
+    border: 1px solid #000;
+    height: 130px;
+    width: 150px;
+}
