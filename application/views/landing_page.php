@@ -57,7 +57,7 @@
                     <?php if (is_array($characters) || is_object($characters)):
                         foreach ($characters as $char):?>
                     <div class="col-sm">
-                        <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar">
+                        <input type="radio" id="<?= $char->women_img?>" @click="myChar($event)" name="leChar" value="<?=$char->women_name?>">
                         <label for="<?= $char->women_img?>"><img src="<?=base_url()?>uploads/<?= $char->women_img?>.png"><?=$char->women_name?></label>
                     </div>
                     <?php endforeach;
@@ -142,7 +142,7 @@
                             <img :id="diceNum" :src="diceImg" @click="rollDice" style="cursor: pointer">
                         </div>
                         <div class="chibiContainer">
-                            <span>Player</span>
+                            <span>{{ theName }}</span>
                             <img id="theChibi" :src="myChibi">
                             <p></p>
                             <a href="<?=base_url()?>game/logout" class="btn btn-primary">QUIT</a>
@@ -179,15 +179,12 @@
             flag: 0,
             popQuiz: false,
             theAnswer: 0,
+            theName: "",
         },
         methods: {
             startGame() {
                 this.gameIsRunning = true;
                 this.choseBoard = true;
-            },
-            showModal() {
-                this.popQuiz = true;
-                console.log(this.popQuiz);
             },
             stopGame() {
                 this.gameIsRunning = false;
@@ -227,6 +224,7 @@
             },
             myChar(event) {
                 this.theChar = event.currentTarget.id;
+                this.theName = event.currentTarget.value;
             },
             rollDice() {
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
