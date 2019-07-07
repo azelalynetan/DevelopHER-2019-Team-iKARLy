@@ -11,8 +11,8 @@ class Game extends CI_Controller {
     public function index() {
 
         $char_stuff = array (
-            'characters' => $this->item_model->fetch('women_tbl'),
-            'questions' => $this->item_model->fetch('question_tbl'),
+            'characters' => $this->item_model->fetch('women_tbl')
+            /*'questions' => $this->item_model->fetch('question_tbl'),*/
         );
 
 		$this->load->view('landing_page', $char_stuff);
