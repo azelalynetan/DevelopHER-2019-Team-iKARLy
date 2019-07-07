@@ -87,6 +87,27 @@
             </div>
         </div>
 
+        <!-- Pop Quiz Correct -->
+        <div class="modal fade" id="popQuiz2" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pop Quiz</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        It's a digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, operating independently of a central bank.
+                        <button onclick="myFunc3()">online money</button>
+                        <button onclick="myFunc3()">bitcoin</button>
+                        <button onclick="myFunc3()">blockchain</button>
+                        <button onclick="myFunc4()">cryptocurrency</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- GAME START -->
         <div id="in-game" v-if="gameIsPlaying">
             <div class="container ">
@@ -154,6 +175,7 @@
     </div>
 
     <script>
+
     function myFunc() {
         document.getElementsByClassName("modal-body")[0].innerHTML = '<h3>Correct!</h3><p>The World Economic Forum (WEF)\'s Global Gender Gap Report for 2018 also ranked the Philippines eighth among 149 countries in achieving gender equality. It said the Philippines got its record-high score of 0.799, which means it has closed almost 80 percent of its overall gender gap.</p>';
         vm.moveMyChar(vm.diceNum);
@@ -161,11 +183,24 @@
 
     function myFunc2() {
         document.getElementsByClassName("modal-body")[0].innerHTML = '<h3>Too Bad!</h3><p>The World Economic Forum (WEF)\'s Global Gender Gap Report for 2018 also ranked the Philippines eighth among 149 countries in achieving gender equality. It said the Philippines got its record-high score of 0.799, which means it has closed almost 80 percent of its overall gender gap.</p>';
+
+    }
+
+    function myFunc3() {
+        document.getElementsByClassName("modal-body")[1].innerHTML = '<h3>Too Bad!</h3><p>Cryptocurrency derives from the word cryptography and currency. Cryptography is the process of converting information or data into a cipher or code, especially to prevent unauthorized access while currency is a system of money in general use in a particular country. Essentially, cryptocurrency is an alternative form of payment that allows you to be reasonably pseudonymous.</p>';
+
+    }
+
+    function myFunc4() {
+        document.getElementsByClassName("modal-body")[1].innerHTML = '<h3>Correct!</h3><p>Cryptocurrency derives from the word cryptography and currency. Cryptography is the process of converting information or data into a cipher or code, especially to prevent unauthorized access while currency is a system of money in general use in a particular country. Essentially, cryptocurrency is an alternative form of payment that allows you to be reasonably pseudonymous.</p>';
+        vm.moveMyChar(vm.diceNum);
+
     }
 
     var vm = new Vue({
         el: '#app',
         data: {
+            counter: 0,
             isActive: false,
             isNoChibi: true,
             theBoard: "",
@@ -234,9 +269,13 @@
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
                 this.diceImg = "<?=base_url()?>assets/images/dice_" + this.diceNum + ".png";
 
-                $("#popQuiz1").modal();
-                console.log(this.theAnswer);
-                console.log(this.diceNum);
+                if(this.counter==0){
+                    $("#popQuiz1").modal();
+                    this.counter++;
+                    console.log(this.counter);
+                } else {
+                    $("#popQuiz2").modal();
+                }
             },
             moveMyChar(num) {
                 this.currentPosition += num;
