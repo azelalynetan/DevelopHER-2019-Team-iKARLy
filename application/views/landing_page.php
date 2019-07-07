@@ -17,13 +17,16 @@
             <div class="container bg-yellow">
                 <!-- <h1>title here</h1> -->
                 <img class="board-name" src="<?=base_url()?>assets/images/board-name.png">
-                <button @click="startGame">START</button>
+                <button @click="startGame" class="btn btn-primary">START</button>
             </div>
         </div>
 
         <!-- CHOOSE A BOARD -->
         <div id="boards" v-if="choseBoard">
             <div class="bg-yellow container">
+                <div class="logo">
+                    <img src="<?=base_url()?>assets/images/board-name.png" class="board-img">
+                </div>
                 <h2>Choose a board</h2>
                 <div class="board-row row">
                     <div class="board-box col-sm-3 col-md">
@@ -38,14 +41,17 @@
                         Finish other boards to unlock
                     </div>
                 </div>
-                <button @click="boardChosen">NEXT</button>
-                <button @click="stopGame">X</button>
+                <button @click="stopGame" class="btn btn-secondary">BACK</button>
+                <button @click="boardChosen" class="btn btn-primary">NEXT</button>
             </div>
         </div>
 
         <!-- CHOOSE A CHARACTER -->
         <div id="characters" v-if="choseCharacter">
             <div class="container bg-yellow">
+                <div class="logo">
+                    <img src="<?=base_url()?>assets/images/board-name.png" class="board-img">
+                </div>
                 <h2>Choose a character</h2>
                 <div class="radioGroupChar row">
                     <?php if (is_array($characters) || is_object($characters)):
@@ -57,8 +63,8 @@
                     <?php endforeach;
                     endif; ?>
                 </div>
-                <button @click="goBack">BACK</button>
-                <button @click="playGame">PLAY</button>
+                <button @click="goBack" class="btn btn-secondary">BACK</button>
+                <button @click="playGame" class="btn btn-primary">PLAY</button>
             </div>
         </div>
 
