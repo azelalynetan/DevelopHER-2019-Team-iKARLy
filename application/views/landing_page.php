@@ -107,6 +107,12 @@
                         <button onclick="myFunc3()">blockchain</button>
                         <button onclick="myFunc4()">cryptocurrency</button>
                     </div>
+                    <div class="modal-footer">
+                        <button onclick="myFunc3()" class="btn btn-primary">online money</button>
+                        <button onclick="myFunc3()" class="btn btn-primary">bitcoin</button>
+                        <button onclick="myFunc3()" class="btn btn-primary">blockchain</button>
+                        <button onclick="myFunc4()" class="btn btn-primary">cryptocurrency</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -187,16 +193,18 @@
 
     function myFunc2() {
         document.getElementsByClassName("modal-body")[0].innerHTML = '<h3>Too Bad!</h3><p>The World Economic Forum (WEF)\'s Global Gender Gap Report for 2018 also ranked the Philippines eighth among 149 countries in achieving gender equality. It said the Philippines got its record-high score of 0.799, which means it has closed almost 80 percent of its overall gender gap.</p>';
-
+        document.getElementsByClassName("modal-footer")[0].remove();
     }
 
     function myFunc3() {
         document.getElementsByClassName("modal-body")[1].innerHTML = '<h3>Too Bad!</h3><p>Cryptocurrency derives from the word cryptography and currency. Cryptography is the process of converting information or data into a cipher or code, especially to prevent unauthorized access while currency is a system of money in general use in a particular country. Essentially, cryptocurrency is an alternative form of payment that allows you to be reasonably pseudonymous.</p>';
+        document.getElementsByClassName("modal-footer")[0].remove();
 
     }
 
     function myFunc4() {
         document.getElementsByClassName("modal-body")[1].innerHTML = '<h3>Correct!</h3><p>Cryptocurrency derives from the word cryptography and currency. Cryptography is the process of converting information or data into a cipher or code, especially to prevent unauthorized access while currency is a system of money in general use in a particular country. Essentially, cryptocurrency is an alternative form of payment that allows you to be reasonably pseudonymous.</p>';
+        document.getElementsByClassName("modal-footer")[0].remove();
         vm.moveMyChar(vm.diceNum);
 
     }
