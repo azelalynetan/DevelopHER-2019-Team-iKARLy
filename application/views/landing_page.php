@@ -81,7 +81,7 @@
                     <div class="modal-body">
                         Philippines is most gender-equal country in Asia.
                         <button onclick="myFunc()">True</button>
-                        <button>False</button>
+                        <button onclick="myFunc2()">False</button>
                     </div>
                 </div>
             </div>
@@ -157,6 +157,10 @@
     function myFunc() {
         document.getElementsByClassName("modal-body")[0].innerHTML = '<h3>Correct!</h3><p>The World Economic Forum (WEF)\'s Global Gender Gap Report for 2018 also ranked the Philippines eighth among 149 countries in achieving gender equality. It said the Philippines got its record-high score of 0.799, which means it has closed almost 80 percent of its overall gender gap.</p>';
         vm.moveMyChar(vm.diceNum);
+    }
+
+    function myFunc2() {
+        document.getElementsByClassName("modal-body")[0].innerHTML = '<h3>Too Bad!</h3><p>The World Economic Forum (WEF)\'s Global Gender Gap Report for 2018 also ranked the Philippines eighth among 149 countries in achieving gender equality. It said the Philippines got its record-high score of 0.799, which means it has closed almost 80 percent of its overall gender gap.</p>';
     }
 
     var vm = new Vue({
