@@ -62,6 +62,25 @@
             </div>
         </div>
 
+        <!-- Pop Quiz Correct -->
+        <div class="modal fade" id="popQuiz1" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pop Quiz</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Philippines is most gender-equal country in Asia.
+                        <button onclick="myFunc()">True</button>
+                        <button>False</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- GAME START -->
         <div id="in-game" v-if="gameIsPlaying">
             <div class="container ">
@@ -114,7 +133,7 @@
                     <section id="sidenav" class="col-3">
                         <div class="diceContainer">
                             <span>Roll the dice</span>
-                            <img :id="diceNum" :src="diceImg" @click="rollDice($event)" style="cursor: pointer">
+                            <img :id="diceNum" :src="diceImg" @click="rollDice" style="cursor: pointer">
                         </div>
                         <div class="chibiContainer">
                             <span>Player</span>
@@ -129,7 +148,12 @@
     </div>
 
     <script>
-    new Vue({
+    function myFunc() {
+        document.getElementsByClassName("modal-body")[0].innerHTML = '<h3>Correct!</h3><p>The World Economic Forum (WEF)\'s Global Gender Gap Report for 2018 also ranked the Philippines eighth among 149 countries in achieving gender equality. It said the Philippines got its record-high score of 0.799, which means it has closed almost 80 percent of its overall gender gap.</p>';
+        vm.moveMyChar(vm.diceNum);
+    }
+
+    var vm = new Vue({
         el: '#app',
         data: {
             isActive: false,
@@ -147,11 +171,17 @@
             currentPosition: 0,
             tempPos: "",
             flag: 0,
+            popQuiz: false,
+            theAnswer: 0,
         },
         methods: {
             startGame() {
                 this.gameIsRunning = true;
                 this.choseBoard = true;
+            },
+            showModal() {
+                this.popQuiz = true;
+                console.log(this.popQuiz);
             },
             stopGame() {
                 this.gameIsRunning = false;
@@ -176,10 +206,10 @@
                 if(this.theChar) {
                     this.choseCharacter = false;
                     this.gameIsPlaying = true;
+                    this.tutModal = true;
                 }
                 this.myChibi = "<?=base_url()?>uploads/" + this.theChar + ".png";
                 this.myChibiHead = "<?=base_url()?>uploads/" + this.theChar + "_head.png";
-                console.log(this.myChibiHead);
             },
             myBoard(event) {
                 if(this.theBoard) {
@@ -192,15 +222,16 @@
             myChar(event) {
                 this.theChar = event.currentTarget.id;
             },
-            rollDice(event) {
+            rollDice() {
                 this.diceNum = Math.floor(Math.random() * 6) + 1;
                 this.diceImg = "<?=base_url()?>assets/images/dice_" + this.diceNum + ".png";
 
-                this.moveMyChar(this.diceNum);
+                $("#popQuiz1").modal();
+                console.log(this.theAnswer);
+                console.log(this.diceNum);
             },
             moveMyChar(num) {
                 this.currentPosition += num;
-                console.log(this.currentPosition);
 
                 if(this.flag == 0) {
                     document.getElementById("box" + this.currentPosition).innerHTML = '<img src="' + this.myChibiHead + '">';
@@ -227,5 +258,7 @@
         }
     });
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
